@@ -20,7 +20,7 @@
   <div class="row mb-5">
     <div class="col">
       <div class="d-flex justify-content-between">
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-danger" [routerLink]="['/']" (click)="resetCart()">
           Start Over
         </button>
         <button type="submit" class="btn btn-primary" [disabled]="isValid()">Confirm</button>
@@ -58,7 +58,8 @@
       <tfoot>
         <tr>
           <td colspan="4"></td>
-          <td> $ {{totalPrice}} </td>
+          <td> $ {{totalPrice}} </td> 
+          
         </tr>
       </tfoot>
 

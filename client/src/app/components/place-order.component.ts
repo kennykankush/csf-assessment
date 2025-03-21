@@ -79,8 +79,9 @@ export class PlaceOrderComponent implements OnInit{
     })
   }
 
-
-
+  resetCart(){
+    this.store.resetCart();
+  }
 
 
 }

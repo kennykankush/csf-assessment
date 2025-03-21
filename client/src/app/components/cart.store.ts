@@ -26,7 +26,6 @@ export class CartStore extends ComponentStore<ItemOrderState>{
     //Updaters 
     //thought process is when it adds, check if item exist and override
     readonly addToCart = this.updater((state, item: ItemOrder) => ({
-    
     ...state, 
     itemsSlice: [...state.itemsSlice, item]
     }));
