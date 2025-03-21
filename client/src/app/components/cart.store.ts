@@ -27,9 +27,7 @@ export class CartStore extends ComponentStore<ItemOrderState>{
     readonly addToCart = this.updater((state, item: ItemOrder) => ({
     ...state, 
     itemsSlice: [...state.itemsSlice, item]
+    }));
 
-    
-}));
-
-
+    readonly resetCart = this.updater(() => ({itemsSlice: []}));
 }

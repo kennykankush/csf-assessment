@@ -48,8 +48,8 @@ export class PlaceOrderComponent implements OnInit{
   createForm(): FormGroup { 
     
       return this.fb.group({
-      username: ['hehe', [Validators.required]],
-      password: ['hehe', [Validators.required]]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
 
     })
   }
