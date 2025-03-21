@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
@@ -27,10 +28,12 @@ public class OrdersRepository {
   // Write the native MongoDB query in the comment below
   //
   //  Native MongoDB query here
-  // db.menu.find()
+  // db.menu.find().sort({ name: 1 })
   public List<Item> getMenu() {
+    Query query = new Query();
+    query.with(Sort.by(Sort.Direction.ASC, "name"));
 
-    List<Document> documents = mongoTemplate.find(new Query(), Document.class, "menu");
+    List<Document> documents = mongoTemplate.find(query, Document.class, "menu");
     List<Item> items = new ArrayList<>();
 
     for(Document document: documents){
