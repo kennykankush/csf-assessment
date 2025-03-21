@@ -1,6 +1,7 @@
 package vttp.batch5.csf.assessment.server.utils;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -14,14 +15,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import vttp.batch5.csf.assessment.server.configuration.Constant;
 import vttp.batch5.csf.assessment.server.dto.PaymentDTO;
 
 
 @Service
 public class PaymentAPI {
 
-    @Value("${TOP.SECRET.CONFIDENTIAL}")
-    private String secretSauce;
+    @Autowired
+    private Constant constant;
 
     public ResponseEntity<String> doPayment(String orderId, String name, double total) throws JsonProcessingException{
         RestTemplate restTemplate = new RestTemplate();
@@ -38,7 +40,7 @@ public class PaymentAPI {
         String json = new JSONObject()
                   .put("order_id", orderId)
                   .put("payer", name)
-                  .put("payee", secretSauce)
+                  .put("payee", constant.secretSauce)
                   .put("payment", total).toString();
 
         System.out.println(json);
