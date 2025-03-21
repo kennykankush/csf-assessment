@@ -1,0 +1,2 @@
+# TODO: Task 1.1
+mongoimport -d menus -c menuss --type=json --file=menus.json

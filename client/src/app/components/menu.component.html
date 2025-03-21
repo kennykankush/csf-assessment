@@ -1,0 +1,76 @@
+<div class="row mt-3">
+  <div class="col d-flex justify-content-between align-items-center">
+    <div class="fs-1 fw-bold text-primary">Menu <span *ngIf="items$.length > 0">($ {{totalPrice}})</span></div>
+    <div>
+      <button type="button" class="btn btn-primary" routerLink="/place">
+        Place Order {{totalOrder}}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- {{items$ | json }} -->
+
+<!-- each row display a single mene item -->
+<div class="row mb-2" *ngFor="let m of menu">
+  <div class="col">
+    <div class="menu-item">
+      <div>
+        <button type="button" class="btn btn-warning" (click)="deleteQuantity(m)">
+          <i class="bi bi-x-square"></i>
+        </button>
+      </div>
+      <div class="menu-details">
+        <div>Name:<span class="fw-bold">  {{m.name}}  </span> </div>
+        <div>Description:
+          <span class="fst-italic">
+            {{m.description}}
+          </span>
+        </div>
+        <div>Price: 
+          <span class="fst-italic">
+            {{m.price}}
+          </span> 
+        </div>
+          <div class="text-danger fw-bold" *ngIf="m.quantity > 0">
+            <span class="fst-italic">
+              {{m.quantity}}
+            </span> 
+          </div>
+      </div>
+
+      <div class="menu-button-end">
+        <button type="button" class="btn btn-success" (click)="addToCart(m)">
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row mb-2">
+  <div class="col">
+    <div class="menu-item">
+      <div>
+        <button type="button" class="btn btn-warning">
+          <i class="bi bi-x-square"></i>
+        </button>
+      </div>
+      <div class="menu-details">
+        <div>Name: <span class="fw-bold"> XXX </span> </div>
+        <div>Description:
+          <span class="fst-italic">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </span>
+        </div>
+        <div></div>
+          <div class="text-danger fw-bold">Quantity: XXX</div>
+      </div>
+      <div class="menu-button-end">
+        <button type="button" class="btn btn-success">
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
