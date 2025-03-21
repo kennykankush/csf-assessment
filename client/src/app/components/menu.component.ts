@@ -55,8 +55,9 @@ export class MenuComponent implements OnInit{
 
     console.log(item);
     console.log(itemOrder);
-
+    console.log(this.items$);
     this.store.addToCart(itemOrder)
+    console.log(this.items$);
   }
 
   checkCart(){
