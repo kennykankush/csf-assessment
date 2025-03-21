@@ -30,5 +30,17 @@ export class CartStore extends ComponentStore<ItemOrderState>{
     itemsSlice: [...state.itemsSlice, item]
     }));
 
+    //increaseItem(newItem: number){
+    // if (!this.itemNames.has(newItem)){
+    //     this.itemNames.add(newItem)
+  
+    //     const index = this.y.findIndex(item => item===newItem)
+  
+    //     let n = this.y[index]
+  
+        // increase qty
+    //   }
+    // }
+
     readonly resetCart = this.updater(() => ({itemsSlice: []}));
 }
