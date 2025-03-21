@@ -1,6 +1,7 @@
 package vttp.batch5.csf.assessment.server.utils;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,9 @@ import vttp.batch5.csf.assessment.server.dto.PaymentDTO;
 @Service
 public class PaymentAPI {
 
+    @Value("${TOP.SECRET.CONFIDENTIAL}")
+    private String secretSauce;
+
     public ResponseEntity<String> doPayment(String orderId, String name, double total) throws JsonProcessingException{
         RestTemplate restTemplate = new RestTemplate();
         // PaymentDTO payment = new PaymentDTO();
@@ -34,7 +38,7 @@ public class PaymentAPI {
         String json = new JSONObject()
                   .put("order_id", orderId)
                   .put("payer", name)
-                  .put("payee", "test")
+                  .put("payee", secretSauce)
                   .put("payment", total).toString();
 
         System.out.println(json);
