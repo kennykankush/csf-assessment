@@ -17,6 +17,7 @@
     <div class="menu-item">
       <div>
         <button type="button" class="btn btn-warning" (click)="deleteQuantity(m)">
+          <!-- delete doesnt remove the item from the list... -->
           <i class="bi bi-x-square"></i>
         </button>
       </div>
@@ -41,6 +42,7 @@
 
       <div class="menu-button-end">
         <button type="button" class="btn btn-success" (click)="addToCart(m)">
+          <!-- this adds the 'updated' but doesnt override... how  hmm-->
           <i class="bi bi-plus-circle"></i>
         </button>
       </div>
